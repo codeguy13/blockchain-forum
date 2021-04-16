@@ -1,6 +1,5 @@
 attrs==20.3.0
-## !! Could not determine repository location
-blockforum==0.0.1
+-e git+https://github.com/codeguy13/blockchain-forum.git@90eaa6e524752eb719ef76cf62fe2db09eb8cf73#egg=blockforum
 flake8==3.9.0
 iniconfig==1.1.1
 mccabe==0.6.1
