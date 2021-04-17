@@ -1,13 +1,17 @@
 attrs==20.3.0
--e git+https://github.com/codeguy13/blockchain-forum.git@56deeff61a6fb7d6a14dd6940feea2308bc9135e#egg=blockforum
+-e git+https://github.com/codeguy13/blockchain-forum.git@0f454a7866bd2d96dd01762b0d1497b585eea22f#egg=blockforum
+docopt==0.6.2
 flake8==3.9.0
 iniconfig==1.1.1
+Jinja2==2.11.3
+MarkupSafe==1.1.1
 mccabe==0.6.1
 packaging==20.9
 pluggy==0.13.1
 py==1.10.0
 pycodestyle==2.7.0
 pycryptodome==3.10.1
+pydocs==0.2
 pyflakes==2.3.1
 pyparsing==2.4.7
 pytest==6.2.3
