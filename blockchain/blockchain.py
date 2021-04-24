@@ -4,6 +4,14 @@ import time
 
 
 class Block:
+    """
+    Blocks are where 'transactions' are stored.
+    'Transactions' can be anything
+    Block data will be hashed and fed into next block
+    """
+    # TODO: Add max block size
+    # TODO: Add block headers for faster indexing
+
     def __init__(self, index, transactions, timestamp, previous_hash, nonce="0"):
         self.index = index
         self.transactions = transactions
@@ -17,6 +25,10 @@ class Block:
 
 
 class Blockchain:
+    """This will act as the database for the forum"""
+    # TODO: Ensure that transactions have to be signed by sender
+    # TODO: Implement 'target' for more robust proof of work
+
     DIFFICULTY = 2
 
     def __init__(self):
