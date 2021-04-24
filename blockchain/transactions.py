@@ -14,7 +14,10 @@ class Transaction:
         self.reciever = reciever
 
     def get_tx_dict(self):
-        """Create transaction dict"""
+        """
+        Create transaction dictionary
+        to put into transactions list on the block
+        """
 
         if self.sender == "genesis_block":
             client_id = "genesis_block"

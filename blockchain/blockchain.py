@@ -1,16 +1,15 @@
 from Crypto.Hash import SHA256
-from collections import OrderedDict
 import time
 
 
 class Block:
     """
     Blocks are where 'transactions' are stored.
-    'Transactions' can be anything
+    'Transactions' can be anything at the moment
     Block data will be hashed and fed into next block
     """
     # TODO: Add max block size
-    # TODO: Add block headers for faster indexing
+    # TODO: Add block headers for indexing and proof of work
 
     def __init__(self, index, transactions, timestamp, previous_hash, nonce="0"):
         self.index = index
@@ -20,14 +19,22 @@ class Block:
         self.nonce = nonce
 
     def hash_block(self):
+        """
+        Runs block data through SHA256 and returns the hexdigest
+        """
+
         block_string = str(self.__dict__)
         return SHA256.new(block_string.encode()).hexdigest()
 
 
 class Blockchain:
-    """This will act as the database for the forum"""
+    """
+    This will act as the database for the forum
+    """
     # TODO: Ensure that transactions have to be signed by sender
     # TODO: Implement 'target' for more robust proof of work
+    # TODO: Implement consensus using p2p
+    # TODO: Encrypt data where needed
 
     DIFFICULTY = 2
 
@@ -37,6 +44,11 @@ class Blockchain:
         self.create_genesis_block()
 
     def create_genesis_block(self):
+        """
+        The genesis block is the first block in the blockchain
+        """
+        # TODO: create hilarious genesis block data
+
         genesis_block = Block(0, [], time.time(), "0")
         genesis_block.hash = genesis_block.hash_block()
         self.chain.append(genesis_block)
