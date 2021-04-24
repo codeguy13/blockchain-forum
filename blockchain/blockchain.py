@@ -1,19 +1,19 @@
-import hashlib
-import json
+from Crypto.Hash import SHA256
+from collections import OrderedDict
 import time
 
 
 class Block:
-    def __init__(self, index, transactions, timestamp, previous_hash, nonce=0):
+    def __init__(self, index, transactions, timestamp, previous_hash, nonce="0"):
         self.index = index
-        self.transactions = []
+        self.transactions = transactions
         self.timestamp = timestamp
         self.previous_hash = previous_hash
         self.nonce = nonce
 
     def hash_block(self):
-        block_string = json.dumps(self.__dict__, sort_keys=True)
-        return hashlib.sha256(block_string.encode()).hexdigest()
+        block_string = str(self.__dict__)
+        return SHA256.new(block_string.encode()).hexdigest()
 
 
 class Blockchain:
@@ -60,12 +60,14 @@ class Blockchain:
         if not self.unconfirmed_transactions:
             return False
         previous_block = self.previous_block
+
         new_block = Block(
             index=previous_block.index + 1,
             transactions=self.unconfirmed_transactions,
             timestamp=time.time(),
-            previous_hash=previous_block.hash
+            previous_hash=self.previous_block.hash
         )
+
         proof = self.proof_of_work(new_block)
         self.add_block(new_block, proof)
         self.unconfirmed_transactions = []

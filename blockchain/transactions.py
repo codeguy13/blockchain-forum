@@ -24,7 +24,7 @@ class Transaction:
         return collections.OrderedDict(
             {
                 "sender": client_id,
-                "reciever": self.reciever,
+                "receiver": self.reciever,
                 "data": self.tx_data,
                 'timestamp': self.tx_timestamp
             }
