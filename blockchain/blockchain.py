@@ -11,12 +11,14 @@ class Block:
     # TODO: Add max block size
     # TODO: Add block headers for indexing and proof of work
 
-    def __init__(self, index, transactions, timestamp, previous_hash, nonce="0"):
+    def __init__(self, index, transactions, timestamp, previous_hash, nonce=0):
         self.index = index
         self.transactions = transactions
         self.timestamp = timestamp
         self.previous_hash = previous_hash
         self.nonce = nonce
+        self.target = 16
+
 
     def hash_block(self):
         """
@@ -32,7 +34,7 @@ class Blockchain:
     This will act as the database for the forum
     """
     # TODO: Ensure that transactions have to be signed by sender
-    # TODO: Implement 'target' for more robust proof of work
+    # TODO: 'target' could use some work probably
     # TODO: Implement consensus using p2p
     # TODO: Encrypt data where needed
 
@@ -71,13 +73,13 @@ class Blockchain:
     def proof_of_work(self, block):
         block.nonce = 0
         generated_hash = block.hash_block()
-        while not generated_hash.startswith('0' * Blockchain.DIFFICULTY):
+        while not generated_hash.startswith('0' * (Blockchain.DIFFICULTY + block.target)):
             block.nonce += 1
             generated_hash = block.hash_block()
         return generated_hash
 
     def is_valid_proof(self, block, block_hash):
-        return (block_hash.startswith('0' * Blockchain.DIFFICULTY)
+        return (block_hash.startswith('0' * (Blockchain.DIFFICULTY + block.target))
                 and (block_hash == block.hash_block()))
 
     def mine(self, block):
