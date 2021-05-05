@@ -10,5 +10,4 @@ def test_transaction():
         client2,
         "Test data"
     )
-    sig = tx.sign_tx()
-    assert sig is not None
+    assert tx.sig is not None

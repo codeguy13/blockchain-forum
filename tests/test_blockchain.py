@@ -15,7 +15,7 @@ def test_add_block():
     tx = Transaction(
         "Hello from the beginning",
         client1,
-        client2.client_id
+        client2
     )
     bc.unconfirmed_transactions.append(tx.get_tx_dict())
     bc.mine(bc.chain[-1])

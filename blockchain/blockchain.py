@@ -17,7 +17,7 @@ class Block:
         self.timestamp = timestamp
         self.previous_hash = previous_hash
         self.nonce = nonce
-        self.target = 16
+        self.target = 3
 
 
     def hash_block(self):
@@ -76,6 +76,7 @@ class Blockchain:
         while not generated_hash.startswith('0' * (Blockchain.DIFFICULTY + block.target)):
             block.nonce += 1
             generated_hash = block.hash_block()
+            print(block.nonce, generated_hash)
         return generated_hash
 
     def is_valid_proof(self, block, block_hash):
