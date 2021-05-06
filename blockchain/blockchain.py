@@ -19,10 +19,9 @@ class Block:
         self.nonce = nonce
         self.target = 3
 
-
     def hash_block(self):
         """
-        Runs block data through SHA256 and returns the hexdigest
+        Runs block data through SHA256 and returns the digest
         """
 
         block_string = str(self.__dict__)
@@ -33,7 +32,6 @@ class Blockchain:
     """
     This will act as the database for the forum
     """
-    # TODO: Ensure that transactions have to be signed by sender
     # TODO: 'target' could use some work probably
     # TODO: Implement consensus using p2p
     # TODO: Encrypt data where needed
@@ -51,7 +49,7 @@ class Blockchain:
         """
         # TODO: create hilarious genesis block data
 
-        genesis_block = Block(0, [], time.time(), "0")
+        genesis_block = Block(0, ["WHAT THE HELL IS THIS!"], time.time(), "0")
         genesis_block.hash = genesis_block.hash_block()
         self.chain.append(genesis_block)
 

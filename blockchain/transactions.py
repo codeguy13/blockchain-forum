@@ -34,6 +34,6 @@ class Transaction:
     def tx_signature(self):
         """Sign the transaction with senders private key"""
 
-        tx_hash = SHA256.new(str(self.__str__()).encode('ascii'))
+        tx_hash = SHA256.new(str(self.__dict__).encode('ascii'))
         self.sig = self.sender.signer.sign(tx_hash)
         return self.sig
