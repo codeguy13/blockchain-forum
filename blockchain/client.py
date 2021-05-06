@@ -13,9 +13,9 @@ class Client:
 
     def __init__(self):
         self.__private_key = RSA.generate(4096, new().read)
-        self._public_key = self.__private_key.publickey()
+        self.public_key = self.__private_key.publickey()
         self.signer = PKCS1_v1_5.new(self.__private_key)
 
     @property
     def client_id(self):
-        return SHA256.new(self._public_key.exportKey('DER')).hexdigest()
+        return SHA256.new(self.public_key.exportKey('DER')).hexdigest()
