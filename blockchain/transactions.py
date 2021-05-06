@@ -1,3 +1,4 @@
+import os
 import time
 import collections
 from Crypto.Hash import SHA256
@@ -11,7 +12,7 @@ class Transaction:
         self.tx_data = tx_data
         self.sender = sender
         self.receiver = receiver
-        self.sig = [self.tx_timestamp]
+        self.sig = self.tx_signature
 
     def get_tx_dict(self):
         """
@@ -33,6 +34,6 @@ class Transaction:
     def tx_signature(self):
         """Sign the transaction with senders private key"""
 
-        tx_hash = SHA256.new(str(self.get_tx_dict()).encode())
-        sig = self.sender.signer.sign(tx_hash)
-        return self.sig.append(sig)
+        tx_hash = SHA256.new(str(self.__str__()).encode('ascii'))
+        self.sig = self.sender.signer.sign(tx_hash)
+        return self.sig
