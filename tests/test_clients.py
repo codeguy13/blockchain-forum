@@ -10,13 +10,13 @@ def test_clients():
 
 def test_new_client_ui():
     client = ClientUI()
-    with open('private_key.json', 'r') as f:
+    with open('private_key.pem', 'r') as f:
         assert f.read()
         f.close()
 
     assert client.output_client_info() is not None
 
-    if os.path.exists("private_key.json"):
-        os.remove("private_key.json")
+    if os.path.exists("private_key.pem"):
+        os.remove("private_key.pem")
     else:
         print('File not found')

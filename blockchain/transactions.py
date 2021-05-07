@@ -1,4 +1,3 @@
-import os
 import time
 import collections
 from Crypto.Hash import SHA256
