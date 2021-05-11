@@ -13,4 +13,4 @@ class ClientUI(Client):
         print('Public key is:\n', self.public_key.exportKey().decode())
         print('\n')
         print('Client ID is:\n', self.client_id)
-        return 0
+        return

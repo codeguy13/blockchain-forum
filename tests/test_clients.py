@@ -15,8 +15,6 @@ def test_new_client_ui():
         assert f.read()
         f.close()
 
-    assert client.output_client_info() is not None
-
     if os.path.exists("private_key.pem"):
         os.remove("private_key.pem")
     else:

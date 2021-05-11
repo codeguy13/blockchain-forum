@@ -105,7 +105,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-*/private_key.json
+/private_key.pem
 .idea
 .vscode
 .env

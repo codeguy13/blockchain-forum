@@ -1,16 +1,18 @@
-import socket, threading, json, sys
+import socket
+import sys
 
 
 class NodeServer:
     def __init__(self):
+        self.peer_dict = {"peer_ip": []}
         self.port = 9736
-        self.host = ''
+        self.host = socket.gethostname()
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def start_up(self):
         try:
-            self.sock.bind((self.host, self.sock))
+            self.sock.bind(('', self.port))
         except socket.error:
             print("Bind failed")
             sys.exit()
@@ -18,6 +20,8 @@ class NodeServer:
         self.sock.listen(3)
         print("Opened listening socket")
 
-        while True:
-            conn, address = self.sock.accept()
-            print(f"Connected to {address[0]}")
+        conn, address = self.sock.accept()
+        with conn:
+            while True:
+                print(f"Connected to {address[0]}")
+                self.peer_dict['peer_ip'].append(address[0])
