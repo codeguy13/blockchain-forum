@@ -10,6 +10,7 @@ def test_clients():
 
 def test_new_client_ui():
     client = ClientUI()
+    client.output_client_info()
     with open('private_key.pem', 'r') as f:
         assert f.read()
         f.close()
