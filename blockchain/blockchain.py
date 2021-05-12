@@ -35,6 +35,7 @@ class Blockchain:
     # TODO: 'target' could use some work probably
     # TODO: Implement consensus using p2p
     # TODO: Encrypt data where needed
+    # TODO: CONFIRMATIONS!!!
 
     DIFFICULTY = 2
 
