@@ -1,5 +1,5 @@
 attrs==20.3.0
--e git+https://github.com/codeguy13/blockchain-forum.git@745e8350eb6fd0fb9b0aed619a1539f9f8987706#egg=blockforum
+-e git+git@gitlab.com:codeguy131/blockchain-forum.git@223ff21e420136f2ab82d1cd9ff79e19dc167cf9#egg=blockforum
 docopt==0.6.2
 flake8==3.9.0
 iniconfig==1.1.1
