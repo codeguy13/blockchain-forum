@@ -1,5 +1,4 @@
 attrs==20.3.0
--e git+https://gitlab.com:codeguy131/blockchain-forum.git@3f15090a7ff7f64f0156a9e78e177f2de0e54a23#egg=blockforum
 docopt==0.6.2
 flake8==3.9.0
 iniconfig==1.1.1
@@ -16,3 +15,4 @@ pyflakes==2.3.1
 pyparsing==2.4.7
 pytest==6.2.3
 toml==0.10.2
+-e ./.
