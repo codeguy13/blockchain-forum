@@ -42,3 +42,4 @@ class NodeClient(NodeServer):
 
     def receive_blockchain(self):
         self.find_node()
+        pass
