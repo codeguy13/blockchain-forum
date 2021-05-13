@@ -3,7 +3,7 @@ import time
 
 
 class Block:
-    """
+    """!
     Blocks are where 'transactions' are stored.
     'Transactions' can be anything at the moment
     Block data will be hashed and fed into next block
@@ -20,7 +20,7 @@ class Block:
         self.target = 3
 
     def hash_block(self):
-        """
+        """!
         Runs block data through SHA256 and returns the digest
         """
 
@@ -29,7 +29,7 @@ class Block:
 
 
 class Blockchain:
-    """
+    """!
     This will act as the database for the forum
     """
     # TODO: 'target' could use some work probably
@@ -45,7 +45,7 @@ class Blockchain:
         self.create_genesis_block()
 
     def create_genesis_block(self):
-        """
+        """!
         The genesis block is the first block in the blockchain
         """
         # TODO: create hilarious genesis block data

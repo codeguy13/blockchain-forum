@@ -4,7 +4,9 @@ from Crypto.Hash import SHA256
 
 
 class Transaction:
-    """Create a transaction instance to add to the blockchain"""
+    """!
+    Create a transaction instance to add to the blockchain
+    """
 
     def __init__(self, tx_data, sender, receiver):
         self.tx_timestamp = time.time()
@@ -14,7 +16,7 @@ class Transaction:
         self.sig = self.tx_signature
 
     def get_tx_dict(self):
-        """
+        """!
         Create transaction dictionary
         to put into transactions list on the block
         """
@@ -31,7 +33,9 @@ class Transaction:
 
     @property
     def tx_signature(self):
-        """Sign the transaction with senders private key"""
+        """!
+        Sign the transaction with senders private key
+        """
 
         tx_hash = SHA256.new(str(self.__dict__).encode('ascii'))
         self.sig = self.sender.signer.sign(tx_hash)

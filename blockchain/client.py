@@ -6,7 +6,7 @@ from Crypto.Random import new
 
 
 class Client:
-    """
+    """!
     Client is created with a 4096 bit RSA key pair.
     The public key is exported then hashed with sha256.
     The hex output from that gives you the 'client_id'

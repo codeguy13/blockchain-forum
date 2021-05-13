@@ -3,6 +3,10 @@ import sys
 
 
 class NodeServer:
+    """!
+    Object for sending data to other nodes
+    such as a current copy of the blockchain
+    """
     def __init__(self):
         self.peer_dict = {"peer_ip": []}
         self.port = 9736
@@ -15,6 +19,10 @@ class NodeServer:
         return
 
     def start_up(self):
+        """!
+        Opens a listening socket to receive connections from other nodes
+        """
+
         try:
             self.sock.bind(('', self.port))
         except socket.error:
